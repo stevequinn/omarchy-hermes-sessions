@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "kelso.hermes-sessions",
   "name": "Hermes Sessions",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Steve Quinn",
   "license": "MIT",
   "description": "Hermes agent status in the Omarchy bar: current activity plus past sessions, clickable to reopen in a hermes TUI.",
@@ -18,10 +18,13 @@
     "aliases": ["hermes", "hermes-status", "agent-status"],
     "allowMultiple": false,
     "defaults": {
-      "refreshIntervalSec": 30
+      "refreshIntervalSec": 30,
+      "useTui": true
     },
     "schema": [
-      { "key": "refreshIntervalSec", "type": "integer", "label": "Refresh interval (seconds)", "min": 10, "max": 600, "step": 10, "defaultValue": 30 }
+      { "key": "refreshIntervalSec", "type": "integer", "label": "Refresh interval (seconds)", "min": 10, "max": 600, "step": 10, "defaultValue": 30 },
+      { "key": "selectedProfile", "type": "string", "label": "Default profile", "defaultValue": "default" },
+      { "key": "useTui", "type": "boolean", "label": "Abrir em TUI", "defaultValue": true }
     ]
   }
 }

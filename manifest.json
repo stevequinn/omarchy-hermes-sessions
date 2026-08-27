@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "kelso.hermes-sessions",
   "name": "Hermes Sessions",
-  "version": "1.0.3",
-  "author": "Steve Quinn",
+  "version": "1.1.1",
+  "author": "Steve Quinn + rodriguesnich",
   "license": "MIT",
-  "description": "Hermes agent status in the Omarchy bar: current activity plus past sessions, clickable to reopen in a hermes TUI.",
+  "description": "Hermes agent status in the Omarchy bar with config gear: Local vs SSH remote (key-based, user@host), profile tabs, clickable to reopen in hermes TUI.",
   "kinds": ["bar-widget"],
   "activation": "on-demand",
   "entryPoints": {
@@ -13,15 +13,22 @@
   },
   "barWidget": {
     "displayName": "Hermes",
-    "description": "Current Hermes agent status and recent sessions. Click a session to continue it in a Hermes TUI terminal.",
+    "description": "Current Hermes agent status and recent sessions with config gear (Local / SSH remote via key). Click a session to continue it in a Hermes TUI terminal.",
     "category": "AI",
     "aliases": ["hermes", "hermes-status", "agent-status"],
     "allowMultiple": false,
     "defaults": {
-      "refreshIntervalSec": 30
+      "refreshIntervalSec": 30,
+      "remoteHost": "",
+      "remoteMode": "local",
+      "useTui": true
     },
     "schema": [
-      { "key": "refreshIntervalSec", "type": "integer", "label": "Refresh interval (seconds)", "min": 10, "max": 600, "step": 10, "defaultValue": 30 }
+      { "key": "refreshIntervalSec", "type": "integer", "label": "Refresh interval (seconds)", "min": 10, "max": 600, "step": 10, "defaultValue": 30 },
+      { "key": "selectedProfile", "type": "string", "label": "Default profile", "defaultValue": "default" },
+      { "key": "remoteHost", "type": "string", "label": "Remote SSH host (user@host)", "defaultValue": "" },
+      { "key": "remoteMode", "type": "string", "label": "Mode (local / ssh)", "defaultValue": "local" },
+      { "key": "useTui", "type": "boolean", "label": "Abrir em TUI", "defaultValue": true }
     ]
   }
 }
